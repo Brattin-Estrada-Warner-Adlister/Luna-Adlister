@@ -1,9 +1,9 @@
 USE adlister_db;
 
-DROP TABLE ads;
-DROP TABLE users;
+DROP TABLE IF EXISTS ads;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE users (
+CREATE TABLE IF EXISTS users (
                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
                        username VARCHAR(240) NOT NULL,
                        email VARCHAR(240) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE users (
                        PRIMARY KEY (id)
 );
 
-CREATE TABLE ads (
+CREATE TABLE IF EXISTS ads (
                      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
                      user_id INT UNSIGNED NOT NULL,
                      title VARCHAR(240) NOT NULL,
@@ -21,4 +21,3 @@ CREATE TABLE ads (
                          ON DELETE CASCADE
 );
 
-INSERT INTO users(username, email, password) VALUES ('colin', 'colin@codeup.com', 'MySql2021!!!');
