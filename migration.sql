@@ -5,13 +5,16 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE IF EXISTS users (
                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                       username VARCHAR(240) NOT NULL,
-                       email VARCHAR(240) NOT NULL,
-                       password VARCHAR(255) NOT NULL,
+                       user_name VARCHAR(255) NOT NULL,
+                       date_posted CREATED_AT,
+                       category TEXT,
+                       description  LONGTEXT,
+                       location VARCHAR(255),
                        PRIMARY KEY (id)
+
 );
 
-CREATE TABLE IF EXISTS ads (
+CREATE TABLE IF EXISTS ad_list (
                      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
                      user_id INT UNSIGNED NOT NULL,
                      title VARCHAR(240) NOT NULL,
@@ -20,4 +23,6 @@ CREATE TABLE IF EXISTS ads (
                      FOREIGN KEY (user_id) REFERENCES users(id)
                          ON DELETE CASCADE
 );
+
+
 
