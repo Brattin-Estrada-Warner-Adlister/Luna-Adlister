@@ -10,20 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/delete")
+@WebServlet(name = "DeleteAdServlet", urlPatterns = "/ads/delete")
 public class DeleteAdServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/ads/delete.jsp")
-                .forward(request, response);
-    }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Ad ad = new Ad(
-                1, // for now we'll hardcode the user id
-                request.getParameter("title"),
-                request.getParameter("description")
-        );
-        DaoFactory.getAdsDao().insert(ad);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        long adId = Long.parseLong(request.getParameter("id"));
+
+        DaoFactory.getAdsDao().delete(adId);
         response.sendRedirect("/ads");
+
     }
 }
