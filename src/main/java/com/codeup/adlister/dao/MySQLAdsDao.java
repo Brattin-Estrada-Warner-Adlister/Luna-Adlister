@@ -55,6 +55,18 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public void delete(long adId) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setLong(1, adId);
+            stmt.executeUpdate();
+        }   catch (SQLException e) {
+            throw new RuntimeException("Error deleting the ad", e);
+        }
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
                 rs.getLong("id"),
@@ -71,4 +83,22 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+
+    //SEARCH FUNCTIONALITY
+    @Override
+    public List<Ad> searchAdsFromResults(String searchInput) throws SQLException {
+        try {
+            String searchQuery = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
+            String searchQueryPlus = "%" + searchInput + "%";
+            PreparedStatement stmt = connection.prepareStatement(searchQuery);
+            stmt.setString(1, searchQueryPlus);
+            stmt.setString(2, searchQueryPlus);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Sorry, no matches", e);
+        }
+    }
+
 }
