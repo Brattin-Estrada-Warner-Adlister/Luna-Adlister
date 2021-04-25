@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<link rel="stylesheet" type="text/css" tf:href="@{/css/style.css}"/>
 <head>
   <jsp:include page="/WEB-INF/partials/head.jsp">
     <jsp:param name="title" value="Please Log In"/>
