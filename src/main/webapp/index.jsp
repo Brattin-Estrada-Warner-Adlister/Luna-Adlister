@@ -1,20 +1,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 
-<head>
-    <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Welcome to my site!" />
-    </jsp:include>
-</head>
-<style>
-</style>
-<body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
+    <head>
+        <jsp:include page="/WEB-INF/partials/head.jsp">
+            <jsp:param name="title" value="Welcome to my site!" />
+        </jsp:include>
+    </head>
+    <style>
+    </style>
+    <body>
+        <h2 style="text-align:center;">Welcome to Adlister.</h2>
+        <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+        <div class="container">
 
-        <h1>Welcome to the Adlister!</h1>
-    </div>
-</body>
+        </div>
+    </body>
 </html>

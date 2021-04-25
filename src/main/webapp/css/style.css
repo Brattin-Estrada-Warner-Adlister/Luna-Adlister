@@ -36,6 +36,7 @@
 .row > h2{
   color:#008080;
 }
+
 .login_form{
   background-color: #fff;
   border-top-right-radius:20px;
@@ -43,6 +44,15 @@
   border-top:1px solid #ccc;
   border-right:1px solid #ccc;
 }
+
+.logout_form{
+  background-color: powderblue;
+  border-top-right-radius:20px;
+  border-bottom-right-radius:20px;
+  border-top:1px solid #ccc;
+  border-right:1px solid #ccc;
+}
+
 form{
   padding: 0 2em;
 }

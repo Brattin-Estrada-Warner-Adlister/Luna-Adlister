@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
-  <h1>Please Log In</h1>
+  <h2 style="text-align:center;">Login Page.</h2>
   <form action="/login" method="POST">
     <div class="container">
       <div class="row main-content bg-success text-center">

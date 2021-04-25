@@ -6,7 +6,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register Here!" />
     </jsp:include>
-</head>
+</head    <h2 style="text-align:center;">Register User.</h2>>
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container-fluid">
