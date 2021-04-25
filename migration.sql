@@ -23,6 +23,3 @@ CREATE TABLE IF EXISTS ad_list (
                      FOREIGN KEY (user_id) REFERENCES users(id)
                          ON DELETE CASCADE
 );
-
-
-
