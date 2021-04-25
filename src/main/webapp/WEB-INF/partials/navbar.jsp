@@ -4,6 +4,7 @@
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+            <h2 style="color: blue; text-align:center; font-size: 36px;">Login Page</h2>
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
 
