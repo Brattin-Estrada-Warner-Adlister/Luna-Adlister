@@ -7,7 +7,7 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 public class MySQLUsersDao implements Users {
-    private Connection connection;
+    private final Connection connection;
 
     public MySQLUsersDao(Config config) {
         try {
