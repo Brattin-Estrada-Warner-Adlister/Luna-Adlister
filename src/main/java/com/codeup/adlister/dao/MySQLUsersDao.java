@@ -3,6 +3,7 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.User;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -59,6 +60,11 @@ public class MySQLUsersDao implements Users {
 
 
     @Override
+    public ArrayList<User> all() {
+        return null;
+    }
+
+    @Override
     public User findByUsername(String username) {
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
         try {
@@ -85,6 +91,21 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
         }
+    }
+
+    @Override
+    public int editUser(User user) {
+        return 0;
+    }
+
+    @Override
+    public int deleteUser(long id) {
+        return 0;
+    }
+
+    @Override
+    public void updateUser(User user) {
+
     }
 
     private User extractUser(ResultSet rs) throws SQLException {

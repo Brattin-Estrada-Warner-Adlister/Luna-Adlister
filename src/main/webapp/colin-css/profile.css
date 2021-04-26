@@ -1,0 +1,35 @@
+.btn-edit_user {
+    color: ghostwhite;
+    background-color: teal;
+    border-color: black;
+}
+
+.btn-edit_user:hover {
+    color: ghostwhite;
+    background-color: teal;
+    border-color: black;
+}
+
+.btn-delete_user {
+    color: ghostwhite;
+    background-color: firebrick;
+    border-color: black;
+}
+
+.btn-delete_user:hover {
+    color: ghostwhite;
+    background-color: firebrick;
+    border-color: black;
+}
+
+.btn-edit_ad {
+    color: ghostwhite;
+    background-color: cornflowerblue;
+    border-color: black;
+}
+
+.btn-delete_ad {
+    color: ghostwhite;
+    background-color: firebrick;
+    border-color: black;
+}
