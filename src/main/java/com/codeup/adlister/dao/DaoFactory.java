@@ -20,7 +20,7 @@ public class DaoFactory {
         return usersDao;
     }
 
-    public static AdsCategories getAdscategoriesDao(){
+    public static AdsCategories getAdsCategoriesDao(){
         if(adsCategoriesDao == null) {
             adsCategoriesDao = new MySQLAdsCategoriesDao(config);
         }
