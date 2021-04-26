@@ -25,43 +25,11 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<div class="container">
-    <div class="jumbotron jumbotron-fluid m-auto text-center bg-primary" style="position: relative; z-index:
-        0;">
-        <img src="/logo.svg" id="logo" alt="">
-        <h1 class="center m-auto" id="user">Welcome, ${sessionScope.user.username.toUpperCase()}!</h1>
-    </div>
-
-    <div class="row p-2">
-        <div class="col col-4">
-            <img alt="picture">
-        </div>
-<%--        EDIT/DELETE PROFILE--%>
-        <div class="col col-8">
-            <a href="/update" class="btn btn-edit_user" role="button">Edit Profile</a>
-            <a href="/delete" class="btn btn-delete_user" role="button">Delete Profile</a>
-        </div>
-    </div>
-
-<%--    USER'S ADS--%>
-    <h2 class="text-capitalize">Current Ads:</h2>
-    <div class="row">
-        <c:forEach var="ad" items="${userAds}">
-            <div class="card col col-10 mx-auto mb-4">
-                <div class="card-title bg-primary text-center">
-                    <h1>${ad.title}</h1></div>
-                <div class="card-body">
-                    <div class="card-text"><h2>${ad.description}</h2></div>
-                    <a href="/ads/edit?adId=${ad.id}" class="btn btn-edit_ad" role="button">Edit Ad</a>
-                    <a href="/ads/delete?adId=${ad.id}" class="btn btn-delete_ad" role="button">Delete Ad</a>
-                </div>
-                <div class="d-flex">
-                    <c:forEach var="category" items="${ad.categories}">
-                        <span class="badge badge-pill badge-info mx-2">${category}</span>
-                    </c:forEach>
-                </div>
-            </div>
-        </c:forEach>
+    <div class="container">
+        <h1>PROFILE PAGE</h1>
+        <h3>Profile Picture?</h3>
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <h3>Need to add a create add button on this page to redirect to /ads/create</h3>
     </div>
 
 </div>
