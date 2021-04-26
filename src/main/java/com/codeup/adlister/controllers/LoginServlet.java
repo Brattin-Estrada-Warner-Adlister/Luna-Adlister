@@ -2,7 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
-
+import com.codeup.adlister.util.Password;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,13 +26,14 @@ public class LoginServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         if (user == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/login?alert=true");
             return;
         }
 
         boolean validAttempt = password.equals(user.getPassword());
 
         if (validAttempt) {
+            request.getSession().setAttribute("loggedIn", true);
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {

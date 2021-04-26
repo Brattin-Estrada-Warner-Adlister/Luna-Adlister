@@ -44,7 +44,7 @@
               </form>
             </div>
             <div class="row">
-              <p>Don't have an account? <a href="#">Register Here</a></p>
+              <p>Don't have an account? <a href="/register">Register Here</a></p>
             </div>
           </div>
         </div>
@@ -52,7 +52,11 @@
     </div>
     <!-- Footer -->
     <div class="container-fluid text-center footer">
+<<<<<<< HEAD
       Powered By: &trade; by <a href="#">Audi/Colin/Javier.</a></p>
+=======
+      Powered By: &trade; by <a href="https://google.com">Audi/Colin/Javier.</a></p>
+>>>>>>> b20834dbafd7f090a589a36ba90e70d98ce04a0a
     </div>
   </form>
 </div>

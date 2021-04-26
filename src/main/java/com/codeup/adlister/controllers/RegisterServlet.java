@@ -29,9 +29,11 @@ public class RegisterServlet extends HttpServlet {
             || (! password.equals(passwordConfirmation));
 
         if (inputHasErrors) {
-            response.sendRedirect("/register");
+            response.sendRedirect("/register"); //need something to notify user registration failed
             return;
         }
+
+        // THAT USERNAME/EMAIL HAS ALREADY BEEN USED
 
         // create and save a new user
         User user = new User(username, email, password);
