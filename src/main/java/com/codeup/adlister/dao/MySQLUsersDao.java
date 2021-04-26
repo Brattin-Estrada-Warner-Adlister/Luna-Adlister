@@ -103,6 +103,11 @@ public class MySQLUsersDao implements Users {
         return 0;
     }
 
+    @Override
+    public void updateUser(User user) {
+
+    }
+
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;
