@@ -1,53 +1,17 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
-
+import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Properties;
-import java.util.logging.Logger;
 
 public class MySQLUsersDao implements Users {
-    private final Connection connection;
+    private Connection connection;
 
     public MySQLUsersDao(Config config) {
         try {
-            DriverManager.registerDriver(new Driver() {
-              @Override
-              public Connection connect(String url, Properties info) throws SQLException {
-                return null;
-              }
-
-              @Override
-              public boolean acceptsURL(String url) throws SQLException {
-                return false;
-              }
-
-              @Override
-              public DriverPropertyInfo[] getPropertyInfo(String url, Properties info) throws SQLException {
-                return new DriverPropertyInfo[0];
-              }
-
-              @Override
-              public int getMajorVersion() {
-                return 0;
-              }
-
-              @Override
-              public int getMinorVersion() {
-                return 0;
-              }
-
-              @Override
-              public boolean jdbcCompliant() {
-                return false;
-              }
-
-              @Override
-              public Logger getParentLogger() throws SQLFeatureNotSupportedException {
-                return null;
-              }
-            });
+            DriverManager.registerDriver(new Driver());
+            DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                     config.getUrl(),
                     config.getUser(),
@@ -57,7 +21,6 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
-
 
     @Override
     public ArrayList<User> all() {
@@ -94,22 +57,38 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
-    public int editUser(User user) {
-        return 0;
-    }
-
-    @Override
     public int deleteUser(long id) {
-        return 0;
+        int rowsAffected = 0;
+        String query = "DELETE FROM users WHERE id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            rowsAffected = stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsAffected;
     }
 
     @Override
-    public void updateUser(User user) {
+    public int updateUser(User user) {
+        int numberOfRowsEffected = 0;
+        try {
+            String query = "update users set username = ?, email = ?, where id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(4, Long.toString(user.getId()));
 
+            numberOfRowsEffected = stmt.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.printf("ERROR: %s\n", ex);
+        }
+        return numberOfRowsEffected;
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
@@ -117,7 +96,7 @@ public class MySQLUsersDao implements Users {
                 rs.getString("username"),
                 rs.getString("email"),
                 rs.getString("password")
+
         );
     }
-
 }
