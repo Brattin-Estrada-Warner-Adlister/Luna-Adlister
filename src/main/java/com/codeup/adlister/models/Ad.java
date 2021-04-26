@@ -61,8 +61,8 @@ public class Ad {
         return "Ad{" +
                 "id=" + id +
                 ", userId=" + userId +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                ", title=" + title + '\'' +
+                ", description=" + description + '\'' +
                 '}';
     }
 }
