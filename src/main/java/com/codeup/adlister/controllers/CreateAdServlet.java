@@ -1,13 +1,7 @@
 package com.codeup.adlister.controllers;
 
-import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
-import com.codeup.adlister.models.AdCategory;
 import com.codeup.adlister.models.User;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +17,7 @@ public class CreateAdServlet extends HttpServlet {
             return;
         }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-            .forward(request, response);
+                .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -32,11 +26,9 @@ public class CreateAdServlet extends HttpServlet {
         String description = request.getParameter("description");
 
         Ad ad = new Ad(
-            user.getId(),
-            request.getParameter("title"),
-            request.getParameter("description")
+                user.getId(),
+                title,
+                description
         );
-        DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/ads");
     }
 }
