@@ -24,10 +24,8 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <jsp:include page="/WEB-INF/partials/login.jsp" />
-=======
+<h2 style="text-align:center;">Users Profile.</h2>
+<jsp:include page="/WEB-INF/partials/login.jsp" />
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">

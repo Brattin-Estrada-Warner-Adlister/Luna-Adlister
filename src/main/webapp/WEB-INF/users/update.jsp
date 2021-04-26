@@ -11,6 +11,7 @@
     </jsp:include>
 </head>
 <body>
+<h2 style="text-align:center;">Update.</h2>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container p-5">
