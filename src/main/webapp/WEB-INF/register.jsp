@@ -6,8 +6,9 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register Here!" />
     </jsp:include>
-</head    <h2 style="text-align:center;">Register User.</h2>>
+</head
 <body>
+    <h2 style="text-align:center;">Register User.</h2>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container-fluid">
       <div class="row main-content bg-success text-center">
@@ -40,7 +41,7 @@
         </form>
             <!-- Footer -->
             <div class="container-fluid text-center footer">
-              Powered By: &trade; by <a href="https://bit.ly/yinkaenoch">Audi/Colin/Javier.</a></p>
+              Powered By: &trade; by <a href="#">Audi/Colin/Javier.</a></p>
             </div>
             </div>
           </div>

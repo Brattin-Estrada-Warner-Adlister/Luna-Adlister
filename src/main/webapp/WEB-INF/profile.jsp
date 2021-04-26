@@ -7,6 +7,7 @@
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
 </head>
+
 <body>
     <jsp:include page="/WEB-INF/partials/login.jsp" />
 
@@ -16,6 +17,11 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <h3>Need to add a create add button on this page to redirect to /ads/create</h3>
     </div>
+
+<%--    <div class="col col-8">--%>
+<%--        <a href="/update" class="btn btn-info" role="button">Edit Profile</a>--%>
+<%--        <a href="/delete" class="btn btn-warning" role="button">Delete Profile</a>--%>
+<%--    </div>--%>
 
 </body>
 </html>

@@ -7,9 +7,10 @@
   </jsp:include>
 </head>
 <body>
+<h2 style="text-align:center;">Login Page.</h2>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
-  <h2 style="text-align:center;">Login Page.</h2>
+
   <form action="/login" method="POST">
     <div class="container">
       <div class="row main-content bg-success text-center">
@@ -51,7 +52,7 @@
     </div>
     <!-- Footer -->
     <div class="container-fluid text-center footer">
-      Powered By: &trade; by <a href="https://bit.ly/yinkaenoch">Audi/Colin/Javier.</a></p>
+      Powered By: &trade; by <a href="#">Audi/Colin/Javier.</a></p>
     </div>
   </form>
 </div>
