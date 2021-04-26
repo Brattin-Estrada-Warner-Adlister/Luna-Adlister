@@ -25,6 +25,7 @@
 
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <jsp:include page="/WEB-INF/partials/login.jsp" />
 =======
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -47,28 +48,20 @@
         </div>
     </div>
 >>>>>>> b20834dbafd7f090a589a36ba90e70d98ce04a0a
+=======
 
-<%--    USER'S ADS--%>
-    <h2 class="text-capitalize">Current Ads:</h2>
-    <div class="row">
-        <c:forEach var="ad" items="${userAds}">
-            <div class="card col col-10 mx-auto mb-4">
-                <div class="card-title bg-primary text-center">
-                    <h1>${ad.title}</h1></div>
-                <div class="card-body">
-                    <div class="card-text"><h2>${ad.description}</h2></div>
-                    <a href="/ads/edit?adId=${ad.id}" class="btn btn-edit_ad" role="button">Edit Ad</a>
-                    <a href="/ads/delete?adId=${ad.id}" class="btn btn-delete_ad" role="button">Delete Ad</a>
-                </div>
-                <div class="d-flex">
-                    <c:forEach var="category" items="${ad.categories}">
-                        <span class="badge badge-pill badge-info mx-2">${category}</span>
-                    </c:forEach>
-                </div>
-            </div>
-        </c:forEach>
+    <jsp:include page="/WEB-INF/partials/login.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+>>>>>>> 438b99b9cb13d6397e7b55ad45f1db30df623770
+
+    <div class="container">
+        <h1>PROFILE PAGE</h1>
+        <h3>Profile Picture?</h3>
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <h3>Need to add a create add button on this page to redirect to /ads/create</h3>
     </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <%--    <div class="col col-8">--%>
 <%--        <a href="/update" class="btn btn-info" role="button">Edit Profile</a>--%>
@@ -78,6 +71,8 @@
 =======
 </div>
 >>>>>>> b20834dbafd7f090a589a36ba90e70d98ce04a0a
+=======
+>>>>>>> 438b99b9cb13d6397e7b55ad45f1db30df623770
 </body>
 </html>
 

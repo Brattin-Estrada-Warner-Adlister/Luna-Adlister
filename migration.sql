@@ -8,16 +8,29 @@ DROP TABLE IF EXISTS ads_categories;
 CREATE TABLE IF EXISTS users (
                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 438b99b9cb13d6397e7b55ad45f1db30df623770
                        user_name VARCHAR(255) NOT NULL,
                        date_posted CREATED_AT,
                        category TEXT,
                        description  LONGTEXT,
                        location VARCHAR(255),
+<<<<<<< HEAD
 =======
                        username VARCHAR(240) UNIQUE NOT NULL,
                        email VARCHAR(240) NOT NULL,
                        password VARCHAR(255) NOT NULL,
 >>>>>>> b20834dbafd7f090a589a36ba90e70d98ce04a0a
+=======
+
+                       username VARCHAR(240) UNIQUE NOT NULL,
+                       email VARCHAR(240) NOT NULL,
+                       password VARCHAR(255) NOT NULL,
+
+ 
+>>>>>>> 438b99b9cb13d6397e7b55ad45f1db30df623770
                        PRIMARY KEY (id)
 
 );
@@ -51,8 +64,14 @@ CREATE TABLE ads_categories (
                                FOREIGN KEY (categories_id)
                                    REFERENCES categories(id)
 <<<<<<< HEAD
+<<<<<<< HEAD
 );
 =======
+=======
+
+);
+
+>>>>>>> 438b99b9cb13d6397e7b55ad45f1db30df623770
 #                                     ON DELETE CASCADE,
 );
 
@@ -83,4 +102,7 @@ SELECT * FROM users;
 SELECT * FROM ads;
 SELECT * FROM ads_categories;
 SELECT * FROM categories;
+<<<<<<< HEAD
 >>>>>>> b20834dbafd7f090a589a36ba90e70d98ce04a0a
+=======
+>>>>>>> 438b99b9cb13d6397e7b55ad45f1db30df623770

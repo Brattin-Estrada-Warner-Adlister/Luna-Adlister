@@ -43,8 +43,14 @@
             <version>8.0.23</version>
         </dependency>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </dependencies>
 =======
     </dependencies>
 </project>
 >>>>>>> b20834dbafd7f090a589a36ba90e70d98ce04a0a
+=======
+
+    </dependencies>
+</project>
+>>>>>>> 438b99b9cb13d6397e7b55ad45f1db30df623770
