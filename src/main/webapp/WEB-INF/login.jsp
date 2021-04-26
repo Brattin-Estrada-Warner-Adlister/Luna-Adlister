@@ -15,7 +15,7 @@
       <div class="row main-content bg-success text-center">
         <div class="col-md-4 text-center company__info">
           <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
-<%--
+<%--g
       <image src="src/main/webapp/img/logo"></image>
 --%>
         </div>
