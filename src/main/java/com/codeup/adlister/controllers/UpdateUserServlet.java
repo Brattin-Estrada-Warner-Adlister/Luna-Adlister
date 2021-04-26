@@ -47,9 +47,9 @@ public class UpdateUserServlet extends HttpServlet {
                 response.sendRedirect("/update?alert=true");
                 return;
             }
-            User user = new User(
-                    id, username, email, password
-            );
+//            user = new User(
+//                    id, username, email, password
+//            );
             DaoFactory.getUsersDao().updateUser(user);
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
