@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<link rel="stylesheet" type="text/css" tf:href="@{/css/style.css}"/>
 <head>
   <jsp:include page="/WEB-INF/partials/head.jsp">
     <jsp:param name="title" value="Please Log In"/>
@@ -43,7 +43,7 @@
               </form>
             </div>
             <div class="row">
-              <p>Don't have an account? <a href="#">Register Here</a></p>
+              <p>Don't have an account? <a href="/register">Register Here</a></p>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
     </div>
     <!-- Footer -->
     <div class="container-fluid text-center footer">
-      Powered By: &trade; by <a href="https://bit.ly/yinkaenoch">Audi/Colin/Javier.</a></p>
+      Powered By: &trade; by <a href="https://google.com">Audi/Colin/Javier.</a></p>
     </div>
   </form>
 </div>
