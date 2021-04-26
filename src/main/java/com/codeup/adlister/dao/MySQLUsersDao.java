@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Logger;
+import com.mysql.cj.jdbc.Driver;
 
 public class MySQLUsersDao implements Users {
     private final Connection connection;
