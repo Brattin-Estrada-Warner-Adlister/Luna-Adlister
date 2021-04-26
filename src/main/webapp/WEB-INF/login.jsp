@@ -52,15 +52,9 @@
     </div>
     <!-- Footer -->
     <div class="container-fluid text-center footer">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      Powered By: &trade; by <a href="#">Audi/Colin/Javier.</a></p>
-=======
+
       Powered By: &trade; by <a href="https://google.com">Audi/Colin/Javier.</a></p>
->>>>>>> b20834dbafd7f090a589a36ba90e70d98ce04a0a
-=======
-      Powered By: &trade; by <a href="#">Audi/Colin/Javier.</a></p>
->>>>>>> 438b99b9cb13d6397e7b55ad45f1db30df623770
+
     </div>
   </form>
 </div>
