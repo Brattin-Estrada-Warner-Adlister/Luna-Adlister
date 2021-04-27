@@ -9,31 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
-import static com.codeup.adlister.dao.DaoFactory.getAdsDao;
-
-@WebServlet(name = "controllers.SearchAdsServlet", urlPatterns = "/ads/search")
+@WebServlet(name = "SearchServlet", urlPatterns = "/ads/search")
 public class SearchAdsServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Boolean loggedIn = (Boolean)request.getSession().getAttribute("loggedIn");
 
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String searchAds = request.getParameter("search");
-        List<Ad> foundAds = null;
-
-        try {
-            foundAds = DaoFactory.getAdsDao().searchAdsFromResults(searchAds);
-            request.setAttribute("ads", foundAds);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if(loggedIn == null || !loggedIn) {
+            response.sendRedirect("/login");
         }
+        response.sendRedirect("/ads");
+    }
 
-        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
-        System.out.println("These are the ads that we found");
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Ad> filteredList = new ArrayList<>();
+        String searchTerm = request.getParameter("searchTerm");
+            filteredList = DaoFactory.getAdsDao().searchAds(searchTerm);
+            System.out.println(filteredList.size());
+            request.getSession().setAttribute("filtered", filteredList);
+        response.sendRedirect("/ads");
     }
 }

@@ -1,8 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
-import com.codeup.adlister.models.AdCategory;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +15,12 @@ public class ListAdsDao implements Ads {
         return ads;
     }
 
-    public Long insert(Ad ad, String[] categories) {
-        return null;
-    }
-
     public Long insert(Ad ad) {
+
         if (ads == null) {
             ads = generateAds();
         }
+
         ad.setId((long) ads.size());
         ads.add(ad);
         return ad.getId();
@@ -39,27 +36,29 @@ public class ListAdsDao implements Ads {
         return null;
     }
 
-    public void editAd(Ad ad, String[] categories) {
+    @Override
+    public void updateAd(Ad ad) {
 
     }
 
-
+ //   @Override
     public void editAd(Ad ad) {
-        ;
     }
 
     @Override
-    public int delete(Long adId) {
+    public int delete(Long id) {
         return 0;
     }
 
-    public List<Ad> searchAdsFromResults(String searchAds) throws SQLException {
+    @Override
+    public List<Ad> searchAds(String searchTerm) {
         return null;
     }
 
-    public void insertAdCategory(AdCategory adCategory) {
-        }
-
+    @Override
+    public List<Ad> searchAdsFromResults(String searchAds) {
+        return null;
+    }
 
 
     private List<Ad> generateAds() {

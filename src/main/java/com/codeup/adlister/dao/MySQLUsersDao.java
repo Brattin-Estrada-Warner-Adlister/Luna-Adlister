@@ -1,7 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
-
+import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -95,18 +95,13 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
-    public int editUser(User user) {
+    public int updateUser(User user) {
         return 0;
     }
 
     @Override
     public int deleteUser(long id) {
         return 0;
-    }
-
-    @Override
-    public void updateUser(User user) {
-
     }
 
     private User extractUser(ResultSet rs) throws SQLException {

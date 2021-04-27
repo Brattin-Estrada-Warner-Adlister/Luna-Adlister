@@ -8,8 +8,6 @@ public interface Users {
     ArrayList<User>all();
     User findByUsername(String username);
     Long insert(User user);
-    int editUser(User user);
+    int updateUser(User user);
     int deleteUser(long id);
-
-    void updateUser(User user);
 }
