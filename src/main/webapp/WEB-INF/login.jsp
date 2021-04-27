@@ -6,6 +6,7 @@
     <jsp:param name="title" value="Please Log In"/>
   </jsp:include>
 </head>
+
 <body>
 <h2 style="text-align:center;">Login Page.</h2>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
@@ -13,7 +14,7 @@
 
   <form action="/login" method="POST">
     <div class="container">
-      <div class="row main-content bg-success text-center">
+      <div class="row main-content  text-center">
         <div class="col-md-4 text-center company__info">
           <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
 <%--g

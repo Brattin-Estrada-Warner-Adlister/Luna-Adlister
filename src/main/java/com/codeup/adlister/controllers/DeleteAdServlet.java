@@ -43,7 +43,7 @@ public class DeleteAdServlet extends HttpServlet {
             long id = Long.parseLong(request.getParameter("id"));
             DaoFactory.getAdsDao().delete(id);
             response.sendRedirect("/ads");
-
+2
         } catch(IOException ex) {
             System.out.printf("ERROR: %s\n", ex);
         }
