@@ -20,4 +20,3 @@ public class AdsIndexServlet extends HttpServlet {
         }
     }
 }
-

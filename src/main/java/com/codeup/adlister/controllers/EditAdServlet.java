@@ -2,39 +2,68 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
-@WebServlet(name = "controllers.EditAdServlet", urlPatterns = "/edit-mads")
+@WebServlet(name = "edit", urlPatterns = "/ads/edit")
 public class EditAdServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long adId = Long.parseLong(request.getParameter("editAd"));
-        request.setAttribute("ad", DaoFactory.getAdsDao().findAdById(adId));
-        request.getRequestDispatcher("/WEB-INF/edit-ads.jsp").forward(request, response);
+    protected void doGet(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) {
+        try {
+            Boolean loggedIn = (Boolean) request.getSession().getAttribute("loggedIn");
+            if(loggedIn != null && loggedIn){
+                Long adId = Long.valueOf(request.getParameter("adId"));
+                Ad ad = (Ad) DaoFactory.getAdsDao().findAdById(adId);
+                User user = (User)request.getSession().getAttribute("user");
+                if(ad.getUserId() ==  user.getId()){
+                    request.setAttribute("ad", ad);
+                }
+
+                request.getRequestDispatcher("/WEB-INF/ads/edit.jsp").forward(request, response);
+                return;
+            }
+            else response.sendRedirect("/login");
+        } catch(IOException | ServletException ex) {
+            System.out.printf("ERROR: %s\n", ex);
+        }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String title = request.getParameter("title");
-        String description = request.getParameter("description");
-        long id = Long.parseLong(request.getParameter("id"));
-        Ad beforeAd = null;
-        beforeAd = (Ad) DaoFactory.getAdsDao().findAdById(id);
 
-        Ad editAd = new Ad(beforeAd.getId(), title, description);
+    protected void doPost(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ){
         try {
-            DaoFactory.getAdsDao().editAd(beforeAd, editAd);
-        } catch (SQLException e) {
-            e.printStackTrace();
+            long id = Long.parseLong(request.getParameter("id"));
+            long userId = Long.parseLong(request.getParameter("userId"));
+            String title = request.getParameter("title")== null ? "" : request.getParameter("title");
+            String description = request.getParameter("description") == null ? "" : request.getParameter("description");
+
+
+            boolean inValid =
+                    Long.toString(id).equals("") || Long.toString(userId).equals("") ||
+                            title.equals("") ||
+                            description.equals("") ;
+            if(!inValid){
+                Ad ad = new Ad(id, userId, title, description);
+                response.sendRedirect("/profile");
+                return;
+            }
+            response.sendRedirect("/ads/edit?alert=true&adId="+id);
+            return;
+
+
+        } catch(IOException ex) {
+            System.out.printf("ERROR: %s\n", ex);
         }
-        request.getSession().setAttribute("ad",editAd);
-        response.sendRedirect("/ads");
     }
 }
