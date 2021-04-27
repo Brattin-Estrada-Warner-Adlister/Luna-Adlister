@@ -77,6 +77,11 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public void editUser(User user) throws SQLException {
+
+    }
+
 
     public void editUser(User oldUser, User newUser) throws SQLException {
         String updateUserQuery = ("Update users set username = ?, email = ? where username = ?");

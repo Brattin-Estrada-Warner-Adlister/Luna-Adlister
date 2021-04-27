@@ -12,36 +12,66 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "controllers.EditServlet", urlPatterns = "/edit-profile")
+@WebServlet(name = "controllers.EditUserServlet", urlPatterns = "/edit-profile")
 public class EditUserServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        long userId = Long.parseLong(request.getParameter("editUser"));
+    protected void doGet(
+            HttpServletRequest request,
+            HttpServletResponse response) {
         try {
-            request.setAttribute("user", DaoFactory.getUsersDao().findUserById(userId));
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+            Boolean loggedIn = (Boolean)request.getSession().getAttribute("loggedIn");
+
+            if(loggedIn != null && loggedIn){
+                request.getRequestDispatcher("/WEB-INF/users/.jsp").forward(request, response);
+                return;
+            }
+
+            response.sendRedirect("/login");
+        } catch(IOException | ServletException ex) {
+            System.out.printf("ERROR: %s\n", ex);
         }
-        request.getRequestDispatcher("/WEB-INF/edit-profile.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String userName = request.getParameter("username");
-        String email = request.getParameter("email");
-
-        User oldUser = (User) request.getSession().getAttribute("user");
-
-
-        User editUser = new User(oldUser.getId(),userName,email,oldUser.getPassword());
+    protected void doPost(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) {
         try {
-            DaoFactory.getUsersDao().editUser(oldUser,editUser);
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+            Long id = Long.valueOf(request.getParameter("id"));
+            String username = request.getParameter("username");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String img = request.getParameter("img");
+            System.out.println("img: " +  img);
+
+            if(img == null || img.equals("")){
+                System.out.println("HERE");
+                User user = (User)request.getSession().getAttribute("user");
+            }
+            boolean valid = !String.valueOf(id).isEmpty() ||
+                    !username.isEmpty() ||
+                    !email.isEmpty() ||
+                    !password.isEmpty() ||
+                    img.isEmpty();
+
+            if(!valid){
+                response.sendRedirect("/update?alert=true");
+                return;
+            }
+            User user = new User(
+                    id, username, email, password
+            );
+            DaoFactory.getUsersDao().editUser(user);
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("/profile");
+
+        } catch(IOException | SQLException ex) {
+            System.out.printf("ERROR: %s\n", ex);
         }
-        request.getSession().setAttribute("user", editUser);
-        response.sendRedirect("/profile");
+
+
     }
+
 }

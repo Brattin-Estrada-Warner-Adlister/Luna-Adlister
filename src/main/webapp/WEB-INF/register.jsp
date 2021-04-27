@@ -40,7 +40,7 @@
         </form>
             <!-- Footer -->
             <div class="container-fluid text-center footer">
-              Powered By: &trade; by <a href="https://bit.ly/yinkaenoch">Audi/Colin/Javier.</a></p>
+              Powered By: &trade; by <a href="https://fmylife.com/random">Audi/Colin/Javier.</a></p>
             </div>
             </div>
           </div>

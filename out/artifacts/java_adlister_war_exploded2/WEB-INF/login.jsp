@@ -51,7 +51,7 @@
     </div>
     <!-- Footer -->
     <div class="container-fluid text-center footer">
-      Powered By: &trade; by <a href="https://bit.ly/yinkaenoch">Audi/Colin/Javier.</a></p>
+      Powered By: &trade; by <a href="https://tech.jonathangardner.net/wiki/Why_Java_Sucks">Audi/Colin/Javier.</a></p>
     </div>
   </form>
 </div>
