@@ -1,6 +1,5 @@
 package com.codeup.adlister.models;
 
-
 public class Ad {
     private long id;
     private long userId;
@@ -14,14 +13,30 @@ public class Ad {
         this.description = description;
     }
 
+//    Ad ad = new Ad(
+
+//            user.getId(),
+//            request.getParameter("title"),
+//            request.getParameter("description")
+//    );
+
     public Ad(long userId, String title, String description) {
         this.userId = userId;
         this.title = title;
         this.description = description;
     }
 
-    public Ad() {
+    public Ad(String id, String title, String description) {
+    }
 
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     public long getId() {
@@ -55,15 +70,4 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    @Override
-    public String toString() {
-        return "Ad{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", title=" + title + '\'' +
-                ", description=" + description + '\'' +
-                '}';
-    }
 }
-//STILL NEED TO WORK ON CATEGORIES!!!

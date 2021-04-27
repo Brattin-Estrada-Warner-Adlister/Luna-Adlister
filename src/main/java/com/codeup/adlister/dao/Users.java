@@ -1,13 +1,20 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
-import java.util.ArrayList;
+
+import java.sql.SQLException;
 import java.util.List;
 
 public interface Users {
-    ArrayList<User>all();
     User findByUsername(String username);
+
     Long insert(User user);
-    int updateUser(User user);
-    int deleteUser(long id);
+
+    void deleteUser(long userId);
+
+    void editUser(User username, User username1) throws SQLException;
+
+    User findUserById(long id) throws SQLException;
+
+    List<User> all();
 }

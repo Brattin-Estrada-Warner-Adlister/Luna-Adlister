@@ -9,26 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "SearchServlet", urlPatterns = "/ads/search")
+@WebServlet(name = "controllers.SearchAdsServlet", urlPatterns = "/ads/search")
 public class SearchAdsServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Boolean loggedIn = (Boolean)request.getSession().getAttribute("loggedIn");
 
-        if(loggedIn == null || !loggedIn) {
-            response.sendRedirect("/login");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String searchAds = request.getParameter("search");
+        List<Ad> foundAds = null;
+
+        try {
+            foundAds = DaoFactory.getAdsDao().searchAdsFromResults(searchAds);
+            request.setAttribute("ads", foundAds);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        response.sendRedirect("/ads");
-    }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Ad> filteredList = new ArrayList<>();
-        String searchTerm = request.getParameter("searchTerm");
-            filteredList = DaoFactory.getAdsDao().searchAds(searchTerm);
-            System.out.println(filteredList.size());
-            request.getSession().setAttribute("filtered", filteredList);
-        response.sendRedirect("/ads");
+        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
+        System.out.println("These MADS match your search");
+
     }
 }
