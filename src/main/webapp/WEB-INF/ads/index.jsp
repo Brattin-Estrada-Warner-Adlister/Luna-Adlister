@@ -18,7 +18,7 @@
             <p>${ad.description}</p>
             <form action="/ads/delete" method="post">
                 <input type="hidden" name="id" value="${ad.id}">
-                <button>Destroy this Ad with fire</button>
+                <button>Delete Ad</button>
             </form>
         </div>
     </c:forEach>

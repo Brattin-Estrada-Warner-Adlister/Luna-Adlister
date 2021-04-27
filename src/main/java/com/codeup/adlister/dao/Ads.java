@@ -12,9 +12,13 @@ public interface Ads {
     void delete(long adId);
 
 
+    // insert a new ad and return the new ad's id
+    default Long insert() {
+        return insert();
+    }
 
     // insert a new ad and return the new ad's id
-    Long insert(Ad ad);
+//    Long insert(Ad ad);
     Ad getAdById(Long id);
     void updateAd(Ad ad);
     int delete(Long id);

@@ -24,11 +24,13 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+        Integer quantity = request.getParameter("quantity");
 
         Ad ad = new Ad(
                 user.getId(),
                 title,
-                description
+                description,
+                quantity
         );
     }
 }
