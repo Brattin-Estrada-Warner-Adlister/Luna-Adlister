@@ -39,7 +39,7 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Edit</a></li>
                 <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
                 <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol>
@@ -241,6 +241,17 @@
                                 <div class="progress mb-3" style="height: 5px">
                                     <div class="progress-bar bg-primary" role="progressbar" style="width: 66%"
                                          aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div>
+                                    <form method="post" action="/profile/edit">
+                                        <input type="hidden" name="userId" value="${user.id}">
+                                        <button type="submit" name="editUser" id="editUser" class="btn btn-primary m-2" value="${user.id}">Edit Info</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <form method="post" action="/delete">
+                                        <input type="hidden" name="userId" value="${user.id}">
+                                        <button class="btn btn-danger">Delete Profile</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

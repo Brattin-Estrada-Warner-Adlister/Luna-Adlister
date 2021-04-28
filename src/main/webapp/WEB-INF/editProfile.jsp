@@ -10,7 +10,7 @@
 </style>
 <head>
     <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Register Here!"/>
+        <jsp:param name="title" value="Edit Your Profile"/>
     </jsp:include>
 </head>
 <body>
@@ -19,8 +19,7 @@
     <div class="row main-content  text-center">
         <div class="col-md-4 text-center company__info">
             <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
-            <h4 class="company_title">Our
-                Logo should be here</h4>
+            <h4 class="company_title">Our Logo should be here</h4>
         </div>
         <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
             <div class="container-100">
@@ -35,19 +34,12 @@
                             <label for="email">Email</label>
                             <input id="email" name="email" class="form-control" type="text">
                         </div>
-<%--                        <div class="form-group">--%>
-<%--                            <label for="password">Password</label>--%>
-<%--                            <input id="password" name="password" class="form-control" type="password">--%>
-<%--                        </div>--%>
-<%--                        <div class="form-group">--%>
-<%--                            <label for="confirm_password">Confirm Password</label>--%>
-<%--                            <input id="confirm_password" name="confirm_password" class="form-control" type="password">--%>
-<%--                        </div>--%>
+
                         <input type="submit" class="btn btn-primary btn-block">
                     </form>
                     <!-- Footer -->
                     <div class="container-fluid text-center footer">
-                        Powered By: &trade; by <a href="https://bit.ly/yinkaenoch">Audi/Colin/Javier.</a></p>
+                        Powered By: &trade; by <a href="https://google.com">Audi/Colin/Javier.</a></p>
                     </div>
                 </div>
             </div>

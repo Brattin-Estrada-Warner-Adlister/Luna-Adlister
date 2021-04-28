@@ -12,7 +12,7 @@ public interface Users {
 
     Long insert(User user);
 
-    void deleteUser(long userId);
+    void deleteUser(User user);
 
     void editUser(User user) throws SQLException;
 

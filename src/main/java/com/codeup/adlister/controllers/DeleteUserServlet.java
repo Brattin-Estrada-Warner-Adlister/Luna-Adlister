@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
-@WebServlet(name = "DeleteUserServlet", urlPatterns = "/delete-profile")
+@WebServlet(name = "delete", urlPatterns = "/delete")
 public class DeleteUserServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        long userId = Long.parseLong(request.getParameter("userId"));
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        User user = (User) req.getSession().getAttribute("user");
+        DaoFactory.getUsersDao().deleteUser(user);
 
-        DaoFactory.getUsersDao().deleteUser(userId);
-        response.sendRedirect("/register");
+        req.getSession().removeAttribute("user");
+        req.getSession().invalidate();
+        resp.sendRedirect("/login");
     }
 }
