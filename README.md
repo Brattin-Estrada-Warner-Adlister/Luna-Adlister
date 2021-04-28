@@ -1,4 +1,3 @@
-THIS IS THE STAGING BRANCH!!!!
 
 CodeUp Adlister Project
 Members: 
