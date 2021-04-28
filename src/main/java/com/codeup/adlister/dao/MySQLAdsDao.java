@@ -62,6 +62,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+
   public Long insert(Ad ad) {
     try {
       String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
@@ -75,6 +76,30 @@ public class MySQLAdsDao implements Ads {
       return rs.getLong(1);
     } catch (SQLException e) {
       throw new RuntimeException("Error creating a new ad.", e);
+
+    public void delete(long adId) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setLong(1, adId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting the ad.", e);
+        }
+    }
+
+    @Override
+    public List<Ad> searchAdsFromResults(String searchAds) throws SQLException {
+        return null;
+    }
+
+    private Ad extractAd(ResultSet rs) throws SQLException {
+        return new Ad(
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
+        );
     }
   }
 

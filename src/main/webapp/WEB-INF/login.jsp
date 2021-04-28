@@ -14,6 +14,7 @@
 
   <form action="/login" method="POST">
     <div class="container">
+<<<<<<< HEAD
       <div class="row main-content  text-center">
         <div class="col-md-4 text-center company__info">
           <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
@@ -25,6 +26,15 @@
           <div class="container-100">
             <div class="row">
               <h2>Log In</h2>
+=======
+        <h1>Login Page</h1>
+
+
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" name="username" class="form-control" type="text">
+>>>>>>> 2db44e94fa71e1ae2ce8bb0ff14f10aed34e3502
             </div>
             <div class="row">
               <form control="" class="form-group">
@@ -44,6 +54,7 @@
                 </div>
               </form>
             </div>
+<<<<<<< HEAD
             <div class="row">
               <p>Don't have an account? <a href="/register">Register Here</a></p>
             </div>
@@ -55,6 +66,11 @@
     <div class="container-fluid text-center footer">
 
       Powered By: &trade; by <a href="https://google.com">Audi/Colin/Javier.</a></p>
+=======
+            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+        </form>
+
+>>>>>>> 2db44e94fa71e1ae2ce8bb0ff14f10aed34e3502
 
     </div>
   </form>
