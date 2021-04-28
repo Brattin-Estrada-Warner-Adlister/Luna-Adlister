@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
+            <a class="navbar-brand" href="/ads">Giglister</a>
         </div>
 
         <div class="search-container">
-            <form class="form-inline" action="/ads/search" method="post">
+            <form class="form-inline" action="/ads/search" method="get">
                 <input id="search" name="search" type="text">
                 <button type="submit">Submit</button>
             </form>

@@ -16,7 +16,7 @@
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-            <form action="/ads/delete" method="post">
+            <form action="/ads/index" method="get">
                 <input type="hidden" name="id" value="${ad.id}">
                 <button>Destroy this Ad with fire</button>
             </form>

@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "controllers.EditUserServlet", urlPatterns = "/profile/edit")
+@WebServlet(name = "controllers.EditUserServlet", urlPatterns = "/users/edit")
 public class EditUserServlet extends HttpServlet {
 
     protected void doGet(
             HttpServletRequest request,
-            HttpServletResponse response) {
+            HttpServletResponse response) throws IOException, ServletException {
         try {
             Boolean loggedIn = (Boolean) request.getSession().getAttribute("loggedIn");
 
@@ -30,45 +30,39 @@ public class EditUserServlet extends HttpServlet {
         }
     }
 
-
     protected void doPost(
             HttpServletRequest request,
             HttpServletResponse response
-    ) {
-        try {
-            Long id = Long.valueOf(request.getParameter("id"));
-            String username = request.getParameter("username");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            String img = request.getParameter("img");
-            System.out.println("img: " + img);
+    ) throws IOException, ServletException {
 
-            if (img == null || img.equals("")) {
-                System.out.println("HERE");
-                User user = (User) request.getSession().getAttribute("user");
-            }
-            boolean valid = !String.valueOf(id).isEmpty() ||
-                    !username.isEmpty() ||
-                    !email.isEmpty() ||
-                    !password.isEmpty() ||
-                    img.isEmpty();
+        Long id = Long.valueOf(request.getParameter("id"));
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        User user = (User) request.getSession().getAttribute("user");
+        System.out.println("HERE");
 
-            if (!valid) {
-                response.sendRedirect("/update?alert=true");
-                return;
-            }
-            User user = new User(
-                    id, username, email, password
-            );
-            DaoFactory.getUsersDao().editUser(user);
-            request.getSession().setAttribute("user", user);
-            response.sendRedirect("/profile");
+        User updatedUser = new User();
+        updatedUser.setUsername(username);
+        updatedUser.setEmail(email);
+        updatedUser.setId(user.getId());
+        request.getSession().setAttribute("user", user);
+        boolean valid =
+                username.isEmpty() ||
+                email.isEmpty();
 
-        } catch (IOException | SQLException ex) {
-            System.out.printf("ERROR: %s\n", ex);
+
+        if (valid) {
+            response.sendRedirect("/login");
+            return;
         }
 
+        try {
+            DaoFactory.getUsersDao().editUser(updatedUser);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        response.sendRedirect("/profile");
 
     }
-
 }
+

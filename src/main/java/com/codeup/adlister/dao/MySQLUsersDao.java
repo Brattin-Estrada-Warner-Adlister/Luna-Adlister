@@ -78,23 +78,32 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
-    public void editUser(User user) throws SQLException {
-
-    }
-
-
-    public void editUser(User oldUser, User newUser) throws SQLException {
-        String updateUserQuery = ("Update users set username = ?, email = ? where username = ?");
+    public void editUser(User user)  {
+        String updatedUser = "UPDATE users SET username=?, email=? where id = ?";
         try {
-            PreparedStatement stmt = connection.prepareStatement(updateUserQuery);
-            stmt.setString(1, newUser.getUsername());
-            stmt.setString(2, newUser.getEmail());
-            stmt.setString(3, oldUser.getUsername());
+            PreparedStatement stmt = connection.prepareStatement(updatedUser);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setLong(3, user.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Can't update profile", e);
         }
     }
+
+
+//    public void editUser(User oldUser, User newUser) throws SQLException {
+//        String updateUserQuery = ("Update users set username = ?, email = ? where username = ?");
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(updateUserQuery);
+//            stmt.setString(1, newUser.getUsername());
+//            stmt.setString(2, newUser.getEmail());
+//            stmt.setString(3, oldUser.getUsername());
+//            stmt.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Can't update profile", e);
+//        }
+//    }
 
 
     public User findUserById(long id) {
