@@ -14,20 +14,18 @@ import java.sql.SQLException;
 @WebServlet(name = "controllers.EditUserServlet", urlPatterns = "/profile/edit")
 public class EditUserServlet extends HttpServlet {
 
-
     protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response) {
         try {
-            Boolean loggedIn = (Boolean)request.getSession().getAttribute("loggedIn");
+            Boolean loggedIn = (Boolean) request.getSession().getAttribute("loggedIn");
 
-            if(loggedIn != null && loggedIn){
-                request.getRequestDispatcher("/WEB-INF/users/.jsp").forward(request, response);
+            if (loggedIn != null && loggedIn) {
+                request.getRequestDispatcher("/WEB-INF/users/edit.jsp").forward(request, response);
                 return;
             }
-
             response.sendRedirect("/login");
-        } catch(IOException | ServletException ex) {
+        } catch (IOException | ServletException ex) {
             System.out.printf("ERROR: %s\n", ex);
         }
     }
@@ -43,11 +41,11 @@ public class EditUserServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String img = request.getParameter("img");
-            System.out.println("img: " +  img);
+            System.out.println("img: " + img);
 
-            if(img == null || img.equals("")){
+            if (img == null || img.equals("")) {
                 System.out.println("HERE");
-                User user = (User)request.getSession().getAttribute("user");
+                User user = (User) request.getSession().getAttribute("user");
             }
             boolean valid = !String.valueOf(id).isEmpty() ||
                     !username.isEmpty() ||
@@ -55,7 +53,7 @@ public class EditUserServlet extends HttpServlet {
                     !password.isEmpty() ||
                     img.isEmpty();
 
-            if(!valid){
+            if (!valid) {
                 response.sendRedirect("/update?alert=true");
                 return;
             }
@@ -66,7 +64,7 @@ public class EditUserServlet extends HttpServlet {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
 
-        } catch(IOException | SQLException ex) {
+        } catch (IOException | SQLException ex) {
             System.out.printf("ERROR: %s\n", ex);
         }
 

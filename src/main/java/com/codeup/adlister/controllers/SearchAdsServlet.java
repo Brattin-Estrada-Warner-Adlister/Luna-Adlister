@@ -12,22 +12,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "controllers.SearchAdsServlet", urlPatterns = "/ads/search")
+@WebServlet(name = "SearchAdsServlet", urlPatterns = "/ads/search")
 public class SearchAdsServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String searchString = request.getParameter("search");
+        List<Ad> adList = DaoFactory.getAdsDao().searchAds(searchString);
+        System.out.println(adList);
+        request.setAttribute("ads", adList);
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String searchAds = request.getParameter("search");
-        List<Ad> foundAds = null;
-
-        try {
-            foundAds = DaoFactory.getAdsDao().searchAdsFromResults(searchAds);
-            request.setAttribute("ads", foundAds);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
-        System.out.println("These MADS match your search");
-
+        request.getRequestDispatcher("/WEB-INF/search.jsp").forward(request, response);
     }
 }

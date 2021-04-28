@@ -1,5 +1,5 @@
 package com.codeup.adlister.dao;
-import com.mysql.cj.jdbc.Driver;
+
 
 public class DaoFactory {
     private static Ads adsDao;
@@ -19,4 +19,5 @@ public class DaoFactory {
         }
         return usersDao;
     }
+
 }
