@@ -1,9 +1,9 @@
 package com.codeup.adlister.dao;
 
+
 public class DaoFactory {
     private static Ads adsDao;
     private static Users usersDao;
-    private static AdsCategories adsCategoriesDao;
     private static Config config = new Config();
 
     public static Ads getAdsDao() {
@@ -20,6 +20,7 @@ public class DaoFactory {
         return usersDao;
     }
 
+<<<<<<< HEAD
     public static AdsCategories getAdsCategoriesDao(){
         if(adsCategoriesDao == null) {
             adsCategoriesDao = new MySQLAdsCategoriesDao(config);
@@ -27,3 +28,6 @@ public class DaoFactory {
         return adsCategoriesDao;
     }
 }
+=======
+}
+>>>>>>> 6abc6c11886d49f8c29a123b3da2f261ce6af2b4

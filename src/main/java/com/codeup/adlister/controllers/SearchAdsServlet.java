@@ -10,30 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-import static com.codeup.adlister.dao.DaoFactory.getAdsDao;
-
-@WebServlet(name = "controllers.SearchAdsServlet", urlPatterns = "/ads/search")
+@WebServlet(name = "SearchAdsServlet", urlPatterns = "/ads/search")
 public class SearchAdsServlet extends HttpServlet {
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String searchAds = request.getParameter("search");
-        List<Ad> foundAds = null;
-
-        try {
-            foundAds = DaoFactory.getAdsDao().searchAdsFromResults(searchAds);
-            request.setAttribute("ads", foundAds);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String searchString = request.getParameter("search");
+        List<Ad> adList = DaoFactory.getAdsDao().searchAds(searchString);
+        System.out.println(adList);
+        request.setAttribute("ads", adList);
 
         request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
-        System.out.println("These are the ads that we found");
-
     }
 }

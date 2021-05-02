@@ -2,14 +2,15 @@
 <html>
 <link rel="stylesheet" type="text/css" tf:href="@{/css/style.css}"/>
 <head>
-  <jsp:include page="/WEB-INF/partials/head.jsp">
-    <jsp:param name="title" value="Please Log In"/>
-  </jsp:include>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Please Log In"/>
+    </jsp:include>
 </head>
 
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
+<<<<<<< HEAD
   <h1>Please Log In</h1>
   <form action="/login" method="POST">
     <div class="container">
@@ -33,11 +34,49 @@
                 <div class="row">
                   <!-- <span class="fa fa-lock"></span> -->
                   <input type="password" name="password" id="password" class="form__input" placeholder="Password">
+=======
+    <h1>Please Log In</h1>
+    <form action="/login" method="POST">
+        <div class="container">
+            <div class="row main-content  text-center">
+                <div class="col-md-4 text-center company__info">
+                    <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+                    <%--g
+                          <image src="src/main/webapp/img/logo"></image>
+                    --%>
+>>>>>>> 6abc6c11886d49f8c29a123b3da2f261ce6af2b4
                 </div>
-                <div class="row">
-                  <input type="checkbox" name="remember_me" id="remember_me" class="">
-                  <label for="remember_me">Remember Me!</label>
+                <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                    <div class="container-100">
+                        <div class="row">
+                            <h2>Log In</h2>
+                        </div>
+                        <div class="row">
+                            <form control="" class="form-group">
+                                <div class="row">
+                                    <input type="text" name="username" id="username" class="form__input"
+                                           placeholder="Username">
+                                </div>
+                                <div class="row">
+                                    <!-- <span class="fa fa-lock"></span> -->
+                                    <input type="password" name="password" id="password" class="form__input"
+                                           placeholder="Password">
+                                </div>
+                                <div class="row">
+                                    <input type="checkbox" name="remember_me" id="remember_me" class="">
+                                    <label for="remember_me">Remember Me!</label>
+                                </div>
+                                <div class="row">
+                                    <input type="submit" value="Submit" class="btn">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <p>Don't have an account? <a href="/register">Register Here</a></p>
+                        </div>
+                    </div>
                 </div>
+<<<<<<< HEAD
                 <div class="row">
                   <input type="submit" value="Submit" class="btn">
                 </div>
@@ -45,9 +84,11 @@
             </div>
             <div class="row">
               <p>Don't have an account? <a href="/register">Register Here</a></p>
+=======
+>>>>>>> 6abc6c11886d49f8c29a123b3da2f261ce6af2b4
             </div>
-          </div>
         </div>
+<<<<<<< HEAD
       </div>
     </div>
     <!-- Footer -->
@@ -55,6 +96,13 @@
       Powered By: &trade; by <a href="https://google.com">Audi/Colin/Javier.</a></p>
     </div>
   </form>
+=======
+        <!-- Footer -->
+        <div class="container-fluid text-center footer">
+            Powered By: &trade; by <a href="https://google.com">Audi/Colin/Javier.</a></p>
+        </div>
+    </form>
+>>>>>>> 6abc6c11886d49f8c29a123b3da2f261ce6af2b4
 </div>
 </body>
 </html>

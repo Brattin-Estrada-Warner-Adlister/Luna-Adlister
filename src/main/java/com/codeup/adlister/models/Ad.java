@@ -1,75 +1,73 @@
 package com.codeup.adlister.models;
 
-import java.util.List;
-
 public class Ad {
-  private long id;
-  private long userId;
-  private String title;
-  private String description;
-  private List<String> categories;
+    private long id;
+    private long userId;
+    private String title;
+    private String description;
 
-  public Ad(long id, long userId, String title, String description) {
-    this.id = id;
-    this.userId = userId;
-    this.title = title;
-    this.description = description;
-  }
+    public Ad(long id, long userId, String title, String description) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+    }
 
-  public Ad(long userId, String title, String description, List<String> categories) {
-    this.userId = userId;
-    this.title = title;
-    this.description = description;
-    this.categories = categories;
-  }
+//    Ad ad = new Ad(
 
-  public Ad(long id, long userId, String title, String description, List<String> categories) {
-    this.id = id;
-    this.userId = userId;
-    this.title = title;
-    this.description = description;
-    this.categories = categories;
-  }
+//            user.getId(),
+//            request.getParameter("title"),
+//            request.getParameter("description")
+//    );
 
-  public Ad(long userId, String title, String description) {
-    this.userId = userId;
-    this.title = title;
-    this.description = description;
-  }
+    public Ad(long userId, String title, String description) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+    }
 
-  public long getId() {
-    return id;
-  }
+    public Ad(String id, String title, String description) {
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 
-  public long getUserId() {
-    return userId;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public void setUserId(long userId) {
-    this.userId = userId;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-  public String getTitle() {
-    return title;
-  }
+    public long getUserId() {
+        return userId;
+    }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
-  public String getDescription() {
-    return description;
-  }
+    public String getTitle() {
+        return title;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public List<String> getCategories() { return categories; }
+    public String getDescription() {
+        return description;
+    }
 
-  public void setCategories(List<String> categories) { this.categories = categories; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -33,6 +33,7 @@ public class ViewProfileServlet extends HttpServlet {
         request.setAttribute("userAds",userAds);
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
+<<<<<<< HEAD
 }
 
 
@@ -49,3 +50,6 @@ public class ViewProfileServlet extends HttpServlet {
 //        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
 //    }
 //}
+=======
+}
+>>>>>>> 6abc6c11886d49f8c29a123b3da2f261ce6af2b4

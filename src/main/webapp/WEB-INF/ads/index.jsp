@@ -3,20 +3,20 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="We're givin' ya all she's got Captain!" />
+        <jsp:param name="title" value="title" />
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>We're givin' ya all she's got Captain!</h1>
+    <h1>This is what people are mad about!</h1>
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-            <form action="/ads/delete" method="post">
+            <form action="/ads/index" method="get">
                 <input type="hidden" name="id" value="${ad.id}">
                 <button>Destroy this Ad with fire</button>
             </form>
